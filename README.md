@@ -30,7 +30,7 @@ $ docker run -p 7000:7000 -ti snet_python_service bash
 
 From this point we follow the tutorial in the Docker container's prompt.
 
-# cd /opt/singnet/tutorial
+# cd /opt/singnet/snet-textecho
 
 ## Step 2
 

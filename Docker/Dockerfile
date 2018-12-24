@@ -36,6 +36,6 @@ RUN cd ${SINGNET_REPOS} && \
     mv ./linux-amd64/snetd /usr/bin/snetd
 
 RUN cd ${SINGNET_REPOS} && \
-    git clone https://github.com/singnet/wiki.git
+    git clone https://github.com/blueskyinterfaces/snet-textecho.git
 
 WORKDIR ${SINGNET_REPOS}
