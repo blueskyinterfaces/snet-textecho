@@ -14,4 +14,4 @@ fi
 
 snet client deposit 0.00000001 -y
 snet client open_init_channel_registry BSI textecho 0.00000001 11000000 -y
-snet client call 0 0.00000001 localhost:7000 echo "{\"in_text\":$1}"
+snet client call 0 0.00000001 localhost:7000 textecho "{\"in_text\":$1}"

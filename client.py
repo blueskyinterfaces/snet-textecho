@@ -1,5 +1,5 @@
-# __PROJECT__
-# __SERVICE_PORT__
+# textecho
+# 8105
 
 import sys
 import grpc

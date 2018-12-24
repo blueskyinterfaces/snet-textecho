@@ -24,18 +24,31 @@ In this tutorial we'll create a Python service and publish it in SingularityNET.
 Setup a `ubuntu:18.04` docker container using provided `Dockerfile`.
 
 ```
-$ docker build --build-arg language=python -t snet_python_service https://github.com/blueskyinterfaces/snet-textecho.git#master:/Docker
-$ docker run -p 7000:7000 -ti snet_python_service bash
+docker build -t snet_python_service https://github.com/blueskyinterfaces/snet-textecho.git#master:/Docker
+docker run -p 7000:7000 -ti snet_python_service bash
 ```
 
 From this point we follow the tutorial in the Docker container's prompt.
 
-# cd /opt/singnet/snet-textecho
+```
+cd /opt/singnet/snet-textecho
+chmod 755 buildProto.sh
+chmod 755 publishAndStartService.sh
+chmod 755 testService.sh
+```
+
+## Step 2
+
+Create an identity
+
+```
+snet identity create BSI-Identity _PRIVATE_KEY_
+```
 
 ## Step 2
 
 ```
-# ./buildProto.sh
+./buildProto.sh
 ```
 
 ## Step 3
@@ -43,8 +56,8 @@ From this point we follow the tutorial in the Docker container's prompt.
 To test our server locally (without using the blockchain)
 
 ```
-# python3 server.py &
-# python3 client.py "hello world"
+python3 server.py &
+python3 client.py "hello world"
 ```
 
 You should have something like the following output:
@@ -78,7 +91,7 @@ Then
 publish and start your service:
 
 ```
-# ./publishAndStartService.sh PAYMENT_ADDRESS
+./publishAndStartService.sh PAYMENT_ADDRESS
 ```
 
 Replace `PAYMENT_ADDRESS` by your public key (wallet).
@@ -86,7 +99,7 @@ Replace `PAYMENT_ADDRESS` by your public key (wallet).
 Example:
 
 ```
-# ./publishAndStartService.sh 0xA6E06cF37110930D2906e6Ae70bA6224eDED917B
+./publishAndStartService.sh 0xA6E06cF37110930D2906e6Ae70bA6224eDED917B
 ```
 
 This will start the `SNET Daemon` and your service. If everything goes well you will 
@@ -106,13 +119,13 @@ DEBU[0002] starting daemon
 You can double check if it has been properly published using
 
 ```
-# snet organization list-services snet
+snet organization list-services BSI
 ```
 
 Optionally you can un-publish the service
 
 ```
-# snet service delete snet math-operations
+snet service delete BSI textecho
 ```
 
 Actually, since this is just a tutorial, you are expected to un-publish your
@@ -130,7 +143,7 @@ The `testServiceRequest.sh` script is set to use channel id `0`, if your
 set channel id manually at.
 
 ```
-# ./testServiceRequest.sh hello world
+./testServiceRequest.sh hello world
 [blockchain log]
     response:
         v: You said hello world

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package __PROJECT__;
+package textecho;
 
 message Input {
     string in_text = 1;

@@ -8,7 +8,7 @@ fi
 
 echo "Publishing your service. Please wait..."
 
-TMP_FILE=/tmp/snet_Service_publish_log.txt
+TMP_FILE=/tmp/snet_service_publish_log.txt
 rm -f $TMP_FILE
 snet service metadata-init service_spec textecho $1
 snet service metadata-set-fixed-price 0.00000001
