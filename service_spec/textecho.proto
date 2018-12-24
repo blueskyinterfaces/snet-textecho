@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package __PROJECT__;
+
+message Input {
+    string in_text = 1;
+}
+
+message Output {
+    string out_text = 1;
+}
+
+service ServiceDefinition {
+    rpc textEcho(Input) returns (Output) {}
+}
