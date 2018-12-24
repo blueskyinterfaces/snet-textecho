@@ -36,6 +36,10 @@ RUN cd ${SINGNET_REPOS} && \
     mv ./linux-amd64/snetd /usr/bin/snetd
 
 RUN cd ${SINGNET_REPOS} && \
-    git clone https://github.com/blueskyinterfaces/snet-textecho.git
-
+    git clone https://github.com/blueskyinterfaces/snet-textecho.git && \
+    cd snet-textecho && \
+    chmod 755 buildProto.sh && \
+    chmod 755 publishAndStartService.sh && \
+    chmod 755 testService.sh
+ 
 WORKDIR ${SINGNET_REPOS}

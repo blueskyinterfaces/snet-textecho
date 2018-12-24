@@ -18,7 +18,7 @@ class ServiceDefinition(pb2_grpc.ServiceDefinitionServicer):
         self.in_text = ""
         self.response = None
 
-    def communicate(self, request, context):
+    def textecho(self, request, context):
         self.in_text = request.in_text
         self.response = pb2.Output()
         self.response.out_text = "You said {}".format(request.in_text)
